@@ -954,17 +954,17 @@ setup_user_profile()
 
   etc_profile_file="/etc/profile.d/rvm.sh"
   search_list=(
-    ~/.profile
-    ~/.bashrc ~/.bash_profile ~/.bash_login
-    ~/.zshenv ~/.zprofile ~/.zshrc ~/.zlogin
+     $OPENSHIFT_DATA_DIR.profile
+     $OPENSHIFT_DATA_DIR.bashrc  $OPENSHIFT_DATA_DIR.bash_profile  $OPENSHIFT_DATA_DIR.bash_login
+     $OPENSHIFT_DATA_DIR.zshenv  $OPENSHIFT_DATA_DIR.zprofile  $OPENSHIFT_DATA_DIR.zshrc  $OPENSHIFT_DATA_DIR.zlogin
   )
-  target_rc=( ~/.bashrc )
-  [[ -f ~/.zshenv ]] &&
-    target_rc+=( ~/.zshenv ) || target_rc+=( ~/.zshrc )
-  [[ -f ~/.bash_profile ]] &&
-    target_login+=( ~/.bash_profile ) || target_login+=( ~/.bash_login )
-  [[ -f ~/.zprofile ]] &&
-    target_login+=( ~/.zprofile ) || target_login+=( ~/.zlogin )
+  target_rc=(  $OPENSHIFT_DATA_DIR.bashrc )
+  [[ -f  $OPENSHIFT_DATA_DIR.zshenv ]] &&
+    target_rc+=(  $OPENSHIFT_DATA_DIR.zshenv ) || target_rc+=(  $OPENSHIFT_DATA_DIR.zshrc )
+  [[ -f  $OPENSHIFT_DATA_DIR.bash_profile ]] &&
+    target_login+=(  $OPENSHIFT_DATA_DIR.bash_profile ) || target_login+=(  $OPENSHIFT_DATA_DIR.bash_login )
+  [[ -f  $OPENSHIFT_DATA_DIR.zprofile ]] &&
+    target_login+=(  $OPENSHIFT_DATA_DIR.zprofile ) || target_login+=(  $OPENSHIFT_DATA_DIR.zlogin )
 
   for profile_file in ${search_list[@]}
   do
