@@ -78,7 +78,7 @@ install_release()
   get_and_unpack \
     https://github.com/harishashim/rvm-openshift/tarball/master \
     rvm-openshift-master.tar.gz \
-    harishashim-rvm-openshift-
+    xiy-rvm-openshift-
 }
 
 install_head()
